@@ -1,0 +1,13 @@
+.App{
+  display: flex;
+}
+.container{
+  padding: 0 15px;
+  max-width: 887px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}

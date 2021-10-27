@@ -5,7 +5,9 @@ import { gap } from "../../../styles/mixins";
 import Button from "../Button";
 
 const Aside = styled.aside`
-  width: 250px;
+  position: sticky;
+  top: 0;
+  min-width: 250px;
   height: 100vh;
   padding: 66px 0 42px;
   display: flex;
@@ -55,6 +57,11 @@ const LogoutButton = styled.button`
   justify-content: center;
   background: var(--color-white);
   border-radius: 6px;
+  transition: all 0.3s;
+  &:hover{
+    color: var(--color-white);
+    background: var(--color-blue);
+  }
 `;
 
 function Sidebar () {

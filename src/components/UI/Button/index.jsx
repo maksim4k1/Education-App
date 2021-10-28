@@ -13,6 +13,14 @@ const ButtonElement = styled.button`
   background: var(--color-blue);
   border-radius: 6px;
   transition: all 0.3s;
+  &>a{
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &:hover{
     background: var(--color-blue-hover);
   }

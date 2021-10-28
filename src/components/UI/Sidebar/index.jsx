@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import LogoIcon from "../../../assets/LogoIcon";
 import { gap } from "../../../styles/mixins";
@@ -67,12 +68,12 @@ const LogoutButton = styled.button`
 function Sidebar () {
   return(
     <Aside>
-      <LogoIcon/>
+      <NavLink to="/"><LogoIcon/></NavLink>
       <Navigation>
-        <NavButton className="active">Math</NavButton>
-        <NavButton>Physics</NavButton>
-        <NavButton>Chemistry</NavButton>
-        <NavButton>Biology</NavButton>
+        <NavButton className="active"><NavLink to="/classroom/math">Math</NavLink></NavButton>
+        <NavButton><NavLink to="/classroom/physics">Physics</NavLink></NavButton>
+        <NavButton><NavLink to="/classroom/chemistry">Chemistry</NavLink></NavButton>
+        <NavButton><NavLink to="/classroom/biology">Biology</NavLink></NavButton>
       </Navigation>
       <Profile>
         <p>You’ve logged as:</p>

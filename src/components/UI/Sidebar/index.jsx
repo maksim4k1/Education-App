@@ -30,7 +30,9 @@ const NavButton = styled(Button)`
   &:hover{
     background: var(--color-gray);
   }
-  &.active{
+`;
+const Link = styled(NavLink)`
+  &.active>button{
     border: 1px solid var(--color-blue);
   }
 `;
@@ -70,10 +72,10 @@ function Sidebar () {
     <Aside>
       <NavLink to="/"><LogoIcon/></NavLink>
       <Navigation>
-        <NavButton className="active"><NavLink to="/classroom/math">Math</NavLink></NavButton>
-        <NavButton><NavLink to="/classroom/physics">Physics</NavLink></NavButton>
-        <NavButton><NavLink to="/classroom/chemistry">Chemistry</NavLink></NavButton>
-        <NavButton><NavLink to="/classroom/biology">Biology</NavLink></NavButton>
+        <Link to="/classroom/math" activeClassName="active"><NavButton>Math</NavButton></Link>
+        <Link to="/classroom/physics" activeClassName="active"><NavButton>Physics</NavButton></Link>
+        <Link to="/classroom/chemistry" activeClassName="active"><NavButton>Chemistry</NavButton></Link>
+        <Link to="/classroom/biology" activeClassName="active"><NavButton>Biology</NavButton></Link>
       </Navigation>
       <Profile>
         <p>You’ve logged as:</p>

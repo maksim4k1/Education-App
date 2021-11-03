@@ -1,24 +1,14 @@
-import { GET_STUDENTS_BY_ID } from "../types";
+import { combineReducers } from "redux";
+import biologyReducer from "./biologyReducer";
+import chemistryReducer from "./chemistryReducer";
+import mathReducer from "./mathReducer";
+import physicsReducer from "./physicsReduxer";
 
-const initialState = {
-  math: [],
-  physics: [],
-  chemistry: [],
-  biology: [],
-}
-
-const studentsReducer = (state=initialState, {type, payload}) => {
-  switch(type){
-    case GET_STUDENTS_BY_ID: {
-      return {
-        ...state,
-        [payload.name]: payload.value
-      }
-    }
-    default: {
-      return state;
-    }
-  }
-}
+const studentsReducer = combineReducers({
+  math: mathReducer,
+  physics: physicsReducer,
+  chemistry: chemistryReducer,
+  biology: biologyReducer,
+});
 
 export default studentsReducer;

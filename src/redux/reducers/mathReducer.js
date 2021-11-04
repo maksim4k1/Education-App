@@ -22,7 +22,7 @@ const mathReducer = (state=initialState, {type, payload}) => {
     } case GET_MATH_STUDENTS_FAILED: {
       return {
         ...state,
-        ...stateCreator(FAILED)
+        ...stateCreator(FAILED, payload)
       };
     } default: {
       return state;

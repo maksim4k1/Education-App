@@ -22,7 +22,7 @@ const chemistryReducer = (state=initialState, {type, payload}) => {
     } case GET_CHEMISTRY_STUDENTS_FAILED: {
       return {
         ...state,
-        ...stateCreator(FAILED)
+        ...stateCreator(FAILED, payload)
       };
     } default: {
       return state;

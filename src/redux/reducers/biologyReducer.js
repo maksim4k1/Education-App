@@ -22,7 +22,7 @@ const biologyReducer = (state=initialState, {type, payload}) => {
     } case GET_BIOLOGY_STUDENTS_FAILED: {
       return {
         ...state,
-        ...stateCreator(FAILED)
+        ...stateCreator(FAILED, payload)
       };
     } default: {
       return state;

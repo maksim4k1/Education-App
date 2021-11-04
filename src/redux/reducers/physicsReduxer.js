@@ -22,7 +22,7 @@ const physicsReducer = (state=initialState, {type, payload}) => {
     } case GET_PHYSICS_STUDENTS_FAILED: {
       return {
         ...state,
-        ...stateCreator(FAILED)
+        ...stateCreator(FAILED, payload)
       };
     } default: {
       return state;

@@ -1,5 +1,5 @@
-import { getStudentsById } from "../../utils/requests";
-import { GET_BIOLOGY_STUDENTS_FAILED, GET_BIOLOGY_STUDENTS_LOADING, GET_BIOLOGY_STUDENTS_SUCCESS, GET_CHEMISTRY_STUDENTS_FAILED, GET_CHEMISTRY_STUDENTS_LOADING, GET_CHEMISTRY_STUDENTS_SUCCESS, GET_MATH_STUDENTS_FAILED, GET_MATH_STUDENTS_LOADING, GET_MATH_STUDENTS_SUCCESS, GET_PHYSICS_STUDENTS_FAILED, GET_PHYSICS_STUDENTS_LOADING, GET_PHYSICS_STUDENTS_SUCCESS } from "../types"
+import { addNewStudent, getStudentsById } from "../../utils/requests";
+import { ADD_NEW_STUDENT_FAILED, ADD_NEW_STUDENT_LOADING, ADD_NEW_STUDENT_SUCCESS, GET_BIOLOGY_STUDENTS_FAILED, GET_BIOLOGY_STUDENTS_LOADING, GET_BIOLOGY_STUDENTS_SUCCESS, GET_CHEMISTRY_STUDENTS_FAILED, GET_CHEMISTRY_STUDENTS_LOADING, GET_CHEMISTRY_STUDENTS_SUCCESS, GET_MATH_STUDENTS_FAILED, GET_MATH_STUDENTS_LOADING, GET_MATH_STUDENTS_SUCCESS, GET_PHYSICS_STUDENTS_FAILED, GET_PHYSICS_STUDENTS_LOADING, GET_PHYSICS_STUDENTS_SUCCESS } from "../types"
 
 export function getMathStudentsAction(){
   return async (dispatch) => {
@@ -79,6 +79,21 @@ export function getStudentsByIdAction(id){
       } default: {
         break;
       }
+    }
+  }
+}
+
+export function addNewStudentAction(classroom, data){
+  return async (dispatch) => {
+    dispatch({type: ADD_NEW_STUDENT_LOADING});
+
+    const response = await addNewStudent(classroom, data);
+
+    if(response.ok){
+      dispatch({type: ADD_NEW_STUDENT_SUCCESS});
+      dispatch(getStudentsByIdAction(classroom));
+    } else{
+      dispatch({type: ADD_NEW_STUDENT_FAILED, payload: "Internal Server Error 500. Try again"});
     }
   }
 }

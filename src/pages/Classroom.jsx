@@ -62,7 +62,7 @@ function Classroom ({students, getStudents, openModal}) {
       <Navigation>
         <Title>{id}</Title>
         <Button onClick={openModal} disabled={data.loading || data.error}>Add new student</Button>
-        <AddNewStudentModal/>
+        <AddNewStudentModal classroom={id} />
       </Navigation>
       {
         data.loading

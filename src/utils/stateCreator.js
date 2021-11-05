@@ -11,14 +11,14 @@ const stateCreator = (type, error) => {
       }
     } case LOADING: {
       return {
-        success: true,
+        success: false,
         loading: true,
         failed: false,
         error: "",
       }
     } case FAILED: {
       return {
-        success: true,
+        success: false,
         loading: false,
         failed: true,
         error: error,

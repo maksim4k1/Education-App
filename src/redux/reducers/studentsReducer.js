@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import newStudentReducer from "./newStudentReducer";
 import biologyReducer from "./biologyReducer";
 import chemistryReducer from "./chemistryReducer";
 import mathReducer from "./mathReducer";
@@ -9,6 +10,7 @@ const studentsReducer = combineReducers({
   physics: physicsReducer,
   chemistry: chemistryReducer,
   biology: biologyReducer,
+  newStudent: newStudentReducer
 });
 
 export default studentsReducer;

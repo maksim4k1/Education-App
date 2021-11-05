@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import LogoIcon from "../../../assets/LogoIcon";
+import { logoutAction } from "../../../redux/actions/authActions";
 import { gap } from "../../../styles/mixins";
 import Button from "../Button";
 
@@ -67,7 +69,14 @@ const LogoutButton = styled.button`
   }
 `;
 
-function Sidebar () {
+function Sidebar ({username, logout}) {
+  const location = useHistory();
+  
+  function logoutHandler(){
+    logout();
+    location.push("/");
+  }
+
   return(
     <Aside>
       <NavLink to="/"><LogoIcon/></NavLink>
@@ -79,11 +88,18 @@ function Sidebar () {
       </Navigation>
       <Profile>
         <p>You’ve logged as:</p>
-        <UserName>admin</UserName>
-        <LogoutButton>log out</LogoutButton>
+        <UserName>{username}</UserName>
+        <LogoutButton onClick={logoutHandler}>log out</LogoutButton>
       </Profile>
     </Aside>
   );
 }
 
-export default Sidebar;
+const mapStateToProps = (state) => ({
+  username: state.auth.profile.data.username
+});
+const mapDispatchToProps = {
+  logout: logoutAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

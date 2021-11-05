@@ -1,5 +1,5 @@
 import stateCreator from "../../utils/stateCreator";
-import { FAILED, LOADING, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, SUCCESS } from "../types";
+import { FAILED, LOADING, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_SUCCESS, SUCCESS } from "../types";
 
 const initialState = {
   isAuth: false,
@@ -30,8 +30,9 @@ function authReducer(state=initialState, {type, payload}){
         isAuth: false,
         profile: {}
       }
-    }
-    default: {
+    } case LOGOUT_SUCCESS: {
+      return initialState;
+    } default: {
       return state;
     }
   }

@@ -32,6 +32,9 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_LOADING = "LOGIN_LOADING";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 
+// Logout
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+
 // State creator types
 export const SUCCESS = "SUCCESS";
 export const LOADING = "LOADING";

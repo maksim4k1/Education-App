@@ -1,5 +1,5 @@
 import { loginRequest } from "../../utils/requests";
-import { LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS } from "../types"
+import { LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../types"
 
 export function loginAction(data){
   return async (dispatch) => {
@@ -15,4 +15,8 @@ export function loginAction(data){
       dispatch({type: LOGIN_FAILED, payload: "Такого пользователя не найдено"});
     }
   }
+}
+
+export function logoutAction(){
+  return {type: LOGOUT_SUCCESS};
 }

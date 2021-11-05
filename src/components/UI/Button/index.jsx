@@ -24,6 +24,12 @@ const ButtonElement = styled.button`
   &:hover{
     background: var(--color-blue-hover);
   }
+  &:disabled{
+    background: var(--color-blue-disabled);
+    &:hover{
+      background: var(--color-blue-disabled);
+    }
+  }
 `;
 
 function Button (props) {

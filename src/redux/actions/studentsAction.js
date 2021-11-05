@@ -1,14 +1,17 @@
+import { getStudentsById } from "../../utils/requests";
 import { GET_BIOLOGY_STUDENTS_FAILED, GET_BIOLOGY_STUDENTS_LOADING, GET_BIOLOGY_STUDENTS_SUCCESS, GET_CHEMISTRY_STUDENTS_FAILED, GET_CHEMISTRY_STUDENTS_LOADING, GET_CHEMISTRY_STUDENTS_SUCCESS, GET_MATH_STUDENTS_FAILED, GET_MATH_STUDENTS_LOADING, GET_MATH_STUDENTS_SUCCESS, GET_PHYSICS_STUDENTS_FAILED, GET_PHYSICS_STUDENTS_LOADING, GET_PHYSICS_STUDENTS_SUCCESS } from "../types"
 
 export function getMathStudentsAction(){
   return async (dispatch) => {
     dispatch({type: GET_MATH_STUDENTS_LOADING});
-    const response = await fetch("http://localhost:1717/students/math");
+
+    const response = await getStudentsById("math");
+
     if(response.ok){
       const data = await response.json();
       dispatch({type: GET_MATH_STUDENTS_SUCCESS, payload: data});
     } else{
-      dispatch({type: GET_MATH_STUDENTS_FAILED, payload: "Internal Server Error 500. Try again"});
+      dispatch({type: GET_MATH_STUDENTS_FAILED, payload: "Internal Server Error 500."});
     }
   }
 }
@@ -16,12 +19,14 @@ export function getMathStudentsAction(){
 export function getPhysicsStudentsAction(){
   return async (dispatch) => {
     dispatch({type: GET_PHYSICS_STUDENTS_LOADING});
-    const response = await fetch("http://localhost:1717/students/physics");
+    
+    const response = await getStudentsById("physics");
+    
     if(response.ok){
       const data = await response.json();
       dispatch({type: GET_PHYSICS_STUDENTS_SUCCESS, payload: data});
     } else {
-      dispatch({type: GET_PHYSICS_STUDENTS_FAILED, payload: "Internal Server Error 500. Try again"});
+      dispatch({type: GET_PHYSICS_STUDENTS_FAILED, payload: "Internal Server Error 500."});
     }
   }
 }
@@ -29,12 +34,14 @@ export function getPhysicsStudentsAction(){
 export function getChemistryStudentsAction(){
   return async (dispatch) => {
     dispatch({type: GET_CHEMISTRY_STUDENTS_LOADING});
-    const response = await fetch("http://localhost:1717/students/chemistry");
+        
+    const response = await getStudentsById("chemistry");
+    
     if(response.ok){
       const data = await response.json();
       dispatch({type: GET_CHEMISTRY_STUDENTS_SUCCESS, payload: data});
     } else {
-      dispatch({type: GET_CHEMISTRY_STUDENTS_FAILED, payload: "Internal Server Error 500. Try again"});
+      dispatch({type: GET_CHEMISTRY_STUDENTS_FAILED, payload: "Internal Server Error 500."});
     }
   }
 }
@@ -42,12 +49,14 @@ export function getChemistryStudentsAction(){
 export function getBiologyStudentsAction(){
   return async (dispatch) => {
     dispatch({type: GET_BIOLOGY_STUDENTS_LOADING});
-    const response = await fetch("http://localhost:1717/students/biology");
+        
+    const response = await getStudentsById("biology");
+    
     if(response.ok){
       const data = await response.json();
       dispatch({type: GET_BIOLOGY_STUDENTS_SUCCESS, payload: data});
     } else {
-      dispatch({type: GET_BIOLOGY_STUDENTS_FAILED, payload: "Internal Server Error 500. Try again"});
+      dispatch({type: GET_BIOLOGY_STUDENTS_FAILED, payload: "Internal Server Error 500."});
     }
   }
 }

@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import Button from "../components/UI/Button";
+import Modal from "../components/UI/Modal";
 import Student from "../components/UI/Student";
-import { getStudentsByIdAction } from "../redux/actions/studentsAction";
+import { openAddNewStudentModalAction } from "../redux/actions/appActions";
+import { getStudentsByIdAction } from "../redux/actions/studentsActions";
 import { gap } from "../styles/mixins";
 
 const Container = styled.div`
@@ -71,7 +73,7 @@ const Error = styled.div`
   }
 `;
 
-function Classroom ({students, getStudents}) {
+function Classroom ({students, getStudents, openModal}) {
   const {id} = useParams();
   const data = students[id];
 
@@ -89,7 +91,10 @@ function Classroom ({students, getStudents}) {
     <Container className="container">
       <Navigation>
         <Title>{id}</Title>
-        <Button disabled={data.loading || data.error}>Add new student</Button>
+        <Button onClick={openModal} disabled={data.loading || data.error}>Add new student</Button>
+        <Modal>
+
+        </Modal>
       </Navigation>
       {
         data.loading
@@ -119,7 +124,8 @@ const mapStateToProps = (state) => ({
   students: state.students
 });
 const mapDispatchToProps = {
-  getStudents: getStudentsByIdAction
+  getStudents: getStudentsByIdAction,
+  openModal: openAddNewStudentModalAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Classroom);

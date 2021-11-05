@@ -1,14 +1,23 @@
+import { connect } from 'react-redux';
 import AppRoutes from './components/AppRoutes';
 import Sidebar from './components/UI/Sidebar';
 import './styles/App.css';
 
-function App() {
+function App({isAuth}) {
   return (
     <div className="App">
-      <Sidebar/>
+      {
+        isAuth
+        ? <Sidebar/>
+        : null
+      }
       <AppRoutes/>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth
+});
+
+export default connect(mapStateToProps)(App);

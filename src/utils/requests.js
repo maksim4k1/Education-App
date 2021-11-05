@@ -30,3 +30,24 @@ export async function addNewStudent(classroom, data){
     return {ok: false};
   }
 }
+
+export async function loginRequest(data){
+  const body = {
+    username: data.username,
+    password: data.password
+  }
+
+  try{
+    const response = await fetch(`${API_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
+
+    return response;
+  } catch{
+    return {ok: false};
+  }
+}

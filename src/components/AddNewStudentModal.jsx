@@ -15,11 +15,13 @@ function AddNewStudentModal ({classroom, newStudent, addNewStudent, closeModal})
 
   useEffect(() => {
     setError("");
-
+  }, [formData]);
+  useEffect(() => {
     if(newStudent.success){
       closeModal();
+      setFormData({});
     }
-  }, [formData, newStudent.success, closeModal]);
+  }, [newStudent.success, closeModal])
 
   function onSubmitHandler(event){
     event.preventDefault();

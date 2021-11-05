@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router";
 import { generalRoutes, privateRoutes, publicRoutes } from "../utils/routes";
 
-const routes = [...generalRoutes, ...privateRoutes, ...publicRoutes];
+function AppRoutes ({isAuth}) {
+  const [routes, setRoutes] = useState([...generalRoutes, ...publicRoutes]);
 
-function AppRoutes () {
+  useEffect(() => {
+    if(isAuth){
+      setRoutes([...generalRoutes, ...privateRoutes]);
+    } else{
+      setRoutes([...generalRoutes, ...publicRoutes]);
+    }
+  }, [isAuth]);
+
   return(
     <Switch>
       {
@@ -17,4 +26,8 @@ function AppRoutes () {
   );
 }
 
-export default AppRoutes;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth
+});
+
+export default connect(mapStateToProps)(AppRoutes);

@@ -27,6 +27,11 @@ export const ADD_NEW_STUDENT_SUCCESS = "ADD_NEW_STUDENT_SUCCESS";
 export const ADD_NEW_STUDENT_LOADING = "ADD_NEW_STUDENT_LOADING";
 export const ADD_NEW_STUDENT_FAILED = "ADD_NEW_STUDENT_FAILED";
 
+// Login
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_LOADING = "LOGIN_LOADING";
+export const LOGIN_FAILED = "LOGIN_FAILED";
+
 // State creator types
 export const SUCCESS = "SUCCESS";
 export const LOADING = "LOADING";

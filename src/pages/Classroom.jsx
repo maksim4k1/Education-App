@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../components/UI/Button";
 import Student from "../components/UI/Student";

@@ -46,5 +46,6 @@ body{
   --color-gray: #E9ECF2;
   --color-red: #9F2D2D;
   --color-bg-main: #E9ECF2;
-  --color-bg-opacity: rgba(62, 69, 84, 0.27);;
+  --color-bg-opacity: rgba(62, 69, 84, 0.27);
+  --color-border-input: #99A5BD;
 }

@@ -4,12 +4,16 @@ export function setProfileData(token, data){
 }
 
 export function getToken(){
-  return localStorage.getItem("token");
+  return localStorage.getItem("token") || null;
 }
 
 export function getProfileData(){
-  const data = localStorage.getItem("profileData")
-  return JSON.parse(data);
+  const data = localStorage.getItem("profileData");
+  if(data){
+    return JSON.parse(data);
+  } else{
+    return null;
+  }
 }
 
 export function deleteProfileData(){

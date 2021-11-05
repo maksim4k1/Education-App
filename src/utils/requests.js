@@ -51,3 +51,18 @@ export async function loginRequest(data){
     return {ok: false};
   }
 }
+
+export async function loginByToken(token){
+  try{
+    const response = await fetch(`${API_URL}/me`, {
+      method: "GET",
+      headers: {
+        "X-Auth": token
+      }
+    });
+
+    return response;
+  } catch{
+    return {ok: false};
+  }
+}
